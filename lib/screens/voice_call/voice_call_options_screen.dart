@@ -44,7 +44,7 @@ class _VoiceCallOptionsScreenState extends ConsumerState<VoiceCallOptionsScreen>
             const SizedBox(height: 24),
             CustomDropdown(
               label: 'English Proficiency Level',
-              value: callState.proficiencyLevel,
+              value: callState.proficiencyLevel.isNotEmpty ? callState.proficiencyLevel : null,
               items: proficiencyLevels,
               onChanged: (value) {
                 ref.read(callProvider.notifier).setProficiencyLevel(value);
@@ -53,7 +53,7 @@ class _VoiceCallOptionsScreenState extends ConsumerState<VoiceCallOptionsScreen>
             const SizedBox(height: 16),
             CustomDropdown(
               label: 'Gender Preference',
-              value: callState.genderPreference,
+              value: callState.genderPreference.isNotEmpty ? callState.genderPreference : null,
               items: genderPreferences,
               onChanged: (value) {
                 ref.read(callProvider.notifier).setGenderPreference(value);
