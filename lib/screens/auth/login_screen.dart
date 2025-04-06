@@ -4,6 +4,11 @@ import 'package:go_router/go_router.dart';
 
 import '../../../services/auth_service.dart';
 
+/// Authentication screen for existing users with:
+/// - Email/password form validation
+/// - Login functionality
+/// - Password reset option
+/// - Navigation to signup screen
 class LoginScreen extends ConsumerStatefulWidget {
   const LoginScreen({super.key});
 
@@ -56,8 +61,8 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text(
-                  'English Learning App',
+                TranslatedText(
+                  'welcome',
                   style: Theme.of(context).textTheme.headlineMedium,
                 ),
                 const SizedBox(height: 32),
