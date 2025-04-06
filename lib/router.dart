@@ -1,6 +1,7 @@
 import 'package:go_router/go_router.dart';
 import 'package:flutter/material.dart';
 
+import 'app/home_scaffold.dart';
 import 'screens/auth/login_screen.dart';
 import 'screens/auth/signup_screen.dart';
 import 'screens/core/home_screen.dart';
@@ -9,6 +10,11 @@ import 'screens/voice_call/voice_call_options_screen.dart';
 import 'screens/voice_call/voice_call_screen.dart';
 import 'screens/drawer/profile_screen.dart';
 
+/// Application routing configuration defining:
+/// - Authentication routes (login/signup)
+/// - Main app navigation hierarchy
+/// - Protected routes
+/// - Route transitions
 final router = GoRouter(
   routes: [
     GoRoute(
