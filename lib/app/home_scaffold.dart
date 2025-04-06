@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../screens/drawer/drawer_menu.dart';
 
+/// Main application scaffold with:
+/// - App bar
+/// - Navigation drawer
+/// - Bottom navigation
+/// - Responsive layout
 class HomeScaffold extends ConsumerWidget {
   final Widget child;
   
