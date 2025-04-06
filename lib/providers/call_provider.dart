@@ -36,6 +36,10 @@ class CallNotifier extends StateNotifier<CallState> {
   }
 }
 
+/// Manages voice call state including:
+/// - Proficiency level selection
+/// - Gender preference
+/// - Call connection status
 final callProvider = StateNotifierProvider<CallNotifier, CallState>((ref) {
   return CallNotifier();
 });
