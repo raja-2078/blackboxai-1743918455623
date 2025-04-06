@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import 'app/home_scaffold.dart';
 import 'router.dart';
 import 'themes/app_theme.dart';
 
+/// Entry point for the English Learning App
+/// 
+/// Initializes:
+/// - Riverpod state management
+/// - App theme and localization
+/// - Router configuration
 void main() {
   runApp(const ProviderScope(child: MyApp()));
 }
