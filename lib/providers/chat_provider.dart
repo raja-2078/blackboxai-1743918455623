@@ -34,6 +34,10 @@ class ChatNotifier extends StateNotifier<ChatState> {
   }
 }
 
+/// Manages chatbot conversation state including:
+/// - Message history
+/// - Conversation context
+/// - Loading states
 final chatProvider = StateNotifierProvider<ChatNotifier, ChatState>((ref) {
   return ChatNotifier();
 });
