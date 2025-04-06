@@ -9,6 +9,7 @@ class ProfileScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final user = ref.watch(authServiceProvider).currentUser;
+    final preferences = ref.watch(preferencesProvider);
 
     return Scaffold(
       appBar: AppBar(
@@ -121,7 +122,53 @@ class ProfileScreen extends ConsumerWidget {
       title: Text(title),
       trailing: Text(value),
       onTap: () {
-        // TODO: Implement preference editing
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text('Edit $title Preference'),
+          content: DropdownButtonFormField<String>(
+            value: value,
+            items: [
+              DropdownMenuItem(
+                value: 'System Default',
+                child: Text('System Default'),
+              ),
+              DropdownMenuItem(
+                value: 'Light',
+                child: Text('Light'),
+              ),
+              DropdownMenuItem(
+                value: 'Dark',
+                child: Text('Dark'),
+              ),
+            ],
+            onChanged: (newValue) {
+              if (newValue != null) {
+                // Save preference to Firestore or SharedPreferences
+                if (title == 'Theme') {
+                  // TODO: Implement theme preference saving
+                  // This would typically save to Firestore or SharedPreferences
+                  // and update the app theme state
+                } else if (title == 'Language') {
+                  // TODO: Implement language preference saving
+                }
+                Navigator.pop(context);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('$title preference updated to $newValue')),
+                );
+                // Refresh the UI
+                if (mounted) setState(() {});
+              }
+            },
+          ),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text('Cancel'),
+            ),
+          ],
+        ),
+      );
       },
     );
   }
